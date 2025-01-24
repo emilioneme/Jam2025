@@ -276,10 +276,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookXSensitivity: 3
   lookYSensitivity: 3
-  forwardSpeed: 3
-  backSpeed: 1
-  strafeSpeed: 1
-  verticalSpeed: 1
+  forwardSpeed: 2.5
+  backSpeed: 1.5
+  strafeSpeed: 1.5
+  verticalSpeed: 1.5
   rb: {fileID: 131782586}
 --- !u!4 &131782588
 Transform:
