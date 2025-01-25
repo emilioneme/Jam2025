@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2051883781196092463}
   - component: {fileID: 595132520224980177}
-  - component: {fileID: 7848139025151255554}
   - component: {fileID: 3528116566418383287}
+  - component: {fileID: 7848139025151255554}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
   enemyNodeFinder: {fileID: 3528116566418383287}
+  gameManager: {fileID: 0}
   rotationSpeed: 2
   swimmingSpeed: 0
   defaultSpeed: 2
@@ -58,6 +59,20 @@ MonoBehaviour:
   minDistanceToBePredictive: 0
   currentState: 0
   rb: {fileID: 7848139025151255554}
+--- !u!114 &3528116566418383287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5185519250433807888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6c4f1bbdb94cd443ac24b7b172d7d08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeManager: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!54 &7848139025151255554
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -85,20 +100,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3528116566418383287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5185519250433807888}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c4f1bbdb94cd443ac24b7b172d7d08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nodeManager: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!1001 &6484478796418930263
 PrefabInstance:
   m_ObjectHideFlags: 0
