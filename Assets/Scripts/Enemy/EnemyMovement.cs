@@ -123,7 +123,7 @@ public class EnemyMovement : MonoBehaviour
     private bool LOSToPlayer()
     {
         Vector3 direction = (gameManager.playerObject.transform.position - this.transform.position).normalized;
-        Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position), Color.blue);
+        //Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position), Color.blue);
         
         if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo))
         {
