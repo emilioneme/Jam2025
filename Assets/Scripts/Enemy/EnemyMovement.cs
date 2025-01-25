@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField]
     Transform TargetTransform; 
 
     [SerializeField]
