@@ -10,10 +10,10 @@ public class NodeManager : MonoBehaviour
 
 
     // Start is called before the first frame update
+
     void Start()
     { 
         allNodes = GetAllNodes();
-        //yo
         /*
         Debug.Log("after get all");
         Debug.Log(allNodes[0].gameObject.name);
@@ -43,17 +43,21 @@ public class NodeManager : MonoBehaviour
         Node closestNode = null;
         foreach (Node node in allNodes)
         {
+            //Debug.Log("ReturnClosest checking: " + node.gameObject.name);
             if (closestNode == null && node.hasLosToCaller(caller))
             {
                 closestNode = node;
             }
-            else if (Vector3.Distance(callerPos, node.transform.position)
+            else if (closestNode != null && Vector3.Distance(callerPos, node.transform.position)
              < Vector3.Distance(callerPos, closestNode.transform.position) 
              && node.hasLosToCaller(caller))
             {
+                //Debug.Log("non null, found closest");
                 closestNode = node;
             }
         }
+
+        //Debug.Log("returning closest as: " + closestNode.gameObject.name);
 
         return closestNode;
     }

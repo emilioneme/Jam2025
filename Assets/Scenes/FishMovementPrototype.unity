@@ -885,17 +885,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620737758}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &636415889 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3528116566418383287, guid: 0e2fca1e502e8e547aec7906e0e1452d, type: 3}
-  m_PrefabInstance: {fileID: 1560522634487267975}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6c4f1bbdb94cd443ac24b7b172d7d08, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &658339414
 GameObject:
   m_ObjectHideFlags: 0
@@ -2391,10 +2380,6 @@ PrefabInstance:
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 1413453371}
-    - target: {fileID: 595132520224980177, guid: 0e2fca1e502e8e547aec7906e0e1452d, type: 3}
-      propertyPath: enemyNodeFinder
-      value: 
-      objectReference: {fileID: 636415889}
     - target: {fileID: 2051883781196092463, guid: 0e2fca1e502e8e547aec7906e0e1452d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.5
