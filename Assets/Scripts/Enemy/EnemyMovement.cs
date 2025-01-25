@@ -90,8 +90,7 @@ public class EnemyMovement : MonoBehaviour
         if(TargetTransform == TargetTransform.CompareTag("Player") 
         && distance > minDistanceToBePredictive)
         {
-            //currentState = ChasingStates.Predictive;
-            currentState = ChasingStates.Direct;
+            currentState = ChasingStates.Predictive;
         }
         else
         {
