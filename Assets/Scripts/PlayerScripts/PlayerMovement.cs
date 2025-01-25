@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
     [Header("Mouse Settings")]
     [SerializeField]
     float lookXSensitivity = 2f;
