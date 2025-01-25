@@ -34,7 +34,7 @@ public class EnemyMovement : MonoBehaviour
     float maxTargetDistance; 
 
     [SerializeField]
-    float directChaseDistance;
+    float minDistanceToBePredictive;
 
     bool isMoving = true; 
     
@@ -65,17 +65,17 @@ public class EnemyMovement : MonoBehaviour
     {
         distance = Vector3.Distance(TargetTransform.position, transform.position);
 
-        if(TargetTransform != TargetTransform.CompareTag("Player") && distance > directChaseDistance)
-        {
-            currentState = ChasingStates.Direct;
-        }
-        else
+        if(TargetTransform == TargetTransform.CompareTag("Player") 
+        && distance > minDistanceToBePredictive)
         {
             currentState = ChasingStates.Predictive;
         }
+        else
+        {
+            currentState = ChasingStates.Direct;
+        }
         
         
-
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxTargetDistance))
         {
             if (hitInfo.collider.transform == TargetTransform)
