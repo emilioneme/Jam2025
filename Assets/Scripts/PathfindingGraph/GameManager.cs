@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField]
     //Player
-    GameObject player;
+    public GameObject playerObject;
 
     //Fish
     GameObject fish;

@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField]
     Transform TargetTransform; 
 
     [SerializeField]
@@ -13,9 +12,6 @@ public class EnemyMovement : MonoBehaviour
 
     [SerializeField]
     EnemyNodeFinder enemyNodeFinder;
-
-    Transform NodeTransform;
-
 
     
     Vector3 currentTarget;
@@ -67,6 +63,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
+        TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         rb = GetComponent<Rigidbody>(); // Assign the Rigidbody
         swimmingSpeed = defaultSpeed; 
     }
@@ -82,7 +79,7 @@ public class EnemyMovement : MonoBehaviour
             TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         }
 
-        distance = Vector3.Distance(TargetTransform.position, transform.position);
+        distance = Vector3.Distance(TargetTransform.position, this.transform.position);
 
         if(TargetTransform == TargetTransform.CompareTag("Player") 
         && distance > minDistanceToBePredictive)
@@ -121,7 +118,15 @@ public class EnemyMovement : MonoBehaviour
 
     private bool LOSToPlayer()
     {
-        throw new NotImplementedException();
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo))
+        {
+            if(hitInfo.transform.CompareTag("Player"))
+            {
+                return true;
+            }
+            return false;
+        }
+        return false;
     }
 
     void FixedUpdate()

@@ -8,7 +8,7 @@ public class EnemyNodeFinder : MonoBehaviour
     NodeManager nodeManager;
 
     [SerializeField]
-    Player player;
+    GameManager gameManager;
 
     Node lastNode;
     Node targetNode;
@@ -26,7 +26,7 @@ public class EnemyNodeFinder : MonoBehaviour
     }
 
     public Node GetTargetNode() {
-        Node playerNode = nodeManager.ReturnClosest(player.gameObject);
+        Node playerNode = nodeManager.ReturnClosest(gameManager.playerObject);
         Node closestNode = GetClosestNode();
 
         //fish should only get path at each node trigger maybe, while pathing to player
@@ -44,5 +44,12 @@ public class EnemyNodeFinder : MonoBehaviour
 
     Node GetClosestNode() {
         return nodeManager.ReturnClosest(this.gameObject);
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if(other.CompareTag("Node"))
+        {
+            lastNode = other.GetComponent<Node>();
+        }
     }
 }

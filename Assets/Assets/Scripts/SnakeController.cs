@@ -57,7 +57,6 @@ public class SnakeController : MonoBehaviour
             PositionsHistory.RemoveAt(PositionsHistory.Count - 1);
         }
 
-        Debug.Log(PositionsHistory.Count);
 
     }
 
