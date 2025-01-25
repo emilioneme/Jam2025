@@ -346,6 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4929589766958253985}
   - component: {fileID: 2361107427823103341}
+  - component: {fileID: 2730853861306183958}
   - component: {fileID: 2906727270740561961}
   - component: {fileID: 138814153288316327}
   m_Layer: 3
@@ -392,6 +393,20 @@ MonoBehaviour:
   strafeSpeed: 2
   verticalSpeed: 2
   rb: {fileID: 2906727270740561961}
+--- !u!114 &2730853861306183958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877982643497826837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d130435b6d2895c48899fc4510010e49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slider: {fileID: 0}
+  maxHealth: 100
 --- !u!54 &2906727270740561961
 Rigidbody:
   m_ObjectHideFlags: 0
