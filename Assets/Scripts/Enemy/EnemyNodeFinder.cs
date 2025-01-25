@@ -33,7 +33,7 @@ public class EnemyNodeFinder : MonoBehaviour
         List<Node> path = nodeManager.ShortestPath(closestNode, endNode);
 
         //go to next node
-        if(path[0] != lastNode){ //if the last node visited is not the closest
+        if(path[0] != lastNode || path.Count == 1){ //if the last node visited is not the closest
             targetNode = path[0];
         } else {
             targetNode = path[1]; //go to next if closest is last visited
