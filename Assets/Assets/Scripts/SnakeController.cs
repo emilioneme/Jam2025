@@ -24,6 +24,7 @@ public class SnakeController : MonoBehaviour
         for(int i = 0; i < amountOfBodyPartsAtStart; i++)
         {
             GrowSnake();
+             BodyParts[i].transform.localScale = Vector3.Lerp(Vector3.one*100, Vector3.one * 25, (float)i/(float)amountOfBodyPartsAtStart);
         }
         
     }

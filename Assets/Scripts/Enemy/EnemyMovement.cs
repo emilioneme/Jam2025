@@ -112,7 +112,9 @@ public class EnemyMovement : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxTargetDistance))
         {
             if (hitInfo.collider.transform == TargetTransform)
-                swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
+                
+                swimmingSpeed = defaultSpeed + speedingSpeed * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
+                //swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
             else
                 swimmingSpeed = defaultSpeed; // Use default speed otherwise
         }
