@@ -41,8 +41,10 @@ public class NodeManager : MonoBehaviour
     {
         Vector3 callerPos = caller.transform.position; //position of caller
         Node closestNode = null;
+        
         foreach (Node node in allNodes)
         {
+            Debug.Log(node);
             //Debug.Log("ReturnClosest checking: " + node.gameObject.name);
             if (closestNode == null && node.hasLosToCaller(caller))
             {
