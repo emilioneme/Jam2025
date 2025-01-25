@@ -156,6 +156,7 @@ MonoBehaviour:
   - {fileID: 826249333}
   - {fileID: 1502679847}
   - {fileID: 1441686312}
+  minDistanceForLos: 2
 --- !u!135 &63068198
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -249,6 +250,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d20489cfe2d35149a98628a0ae9dbe8, type: 3}
+--- !u!1 &175295794 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2495042773884277772, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+  m_PrefabInstance: {fileID: 1379606683}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &191218594 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6877982643497826837, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
@@ -604,6 +610,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1045573304}
   - {fileID: 402887938}
+  minDistanceForLos: 2
 --- !u!135 &309556436
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -674,6 +681,7 @@ MonoBehaviour:
   - {fileID: 898674779}
   - {fileID: 402887938}
   - {fileID: 826249333}
+  minDistanceForLos: 2
 --- !u!135 &331620712
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -743,6 +751,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 624090119}
   - {fileID: 1033775941}
+  minDistanceForLos: 2
 --- !u!135 &343406830
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -812,6 +821,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 789879581}
   - {fileID: 624090119}
+  minDistanceForLos: 2
 --- !u!135 &379178372
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -882,6 +892,7 @@ MonoBehaviour:
   - {fileID: 331620711}
   - {fileID: 1045573304}
   - {fileID: 309556435}
+  minDistanceForLos: 2
 --- !u!135 &402887939
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -951,6 +962,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1083654885}
   - {fileID: 898674779}
+  minDistanceForLos: 2
 --- !u!135 &446173738
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1020,6 +1032,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1773369903}
   - {fileID: 1876574222}
+  minDistanceForLos: 2
 --- !u!135 &608365406
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1089,6 +1102,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 379178371}
   - {fileID: 343406829}
+  minDistanceForLos: 2
 --- !u!135 &624090120
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1229,6 +1243,7 @@ MonoBehaviour:
   - {fileID: 898674779}
   - {fileID: 331620711}
   - {fileID: 826249333}
+  minDistanceForLos: 2
 --- !u!135 &789879582
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1301,6 +1316,7 @@ MonoBehaviour:
   - {fileID: 789879581}
   - {fileID: 63068197}
   - {fileID: 1441686312}
+  minDistanceForLos: 2
 --- !u!135 &826249334
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1371,6 +1387,7 @@ MonoBehaviour:
   - {fileID: 446173737}
   - {fileID: 331620711}
   - {fileID: 789879581}
+  minDistanceForLos: 2
 --- !u!135 &898674780
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1440,6 +1457,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1034036735}
   - {fileID: 1876574222}
+  minDistanceForLos: 2
 --- !u!135 &902857866
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1509,6 +1527,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 343406829}
   - {fileID: 1706230953}
+  minDistanceForLos: 2
 --- !u!135 &1033775942
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1578,6 +1597,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 902857865}
   - {fileID: 1441686312}
+  minDistanceForLos: 2
 --- !u!135 &1034036736
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1647,6 +1667,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 402887938}
   - {fileID: 309556435}
+  minDistanceForLos: 2
 --- !u!135 &1045573305
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1716,6 +1737,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 8568420338580029113}
   - {fileID: 1083654885}
+  minDistanceForLos: 2
 --- !u!135 &1083654886
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1919,6 +1941,7 @@ MonoBehaviour:
   - {fileID: 63068197}
   - {fileID: 826249333}
   - {fileID: 1034036735}
+  minDistanceForLos: 2
 --- !u!135 &1441686313
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1989,6 +2012,7 @@ MonoBehaviour:
   - {fileID: 1706230953}
   - {fileID: 2101941323}
   - {fileID: 1686743353}
+  minDistanceForLos: 2
 --- !u!135 &1448224502
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2058,6 +2082,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 63068197}
   - {fileID: 1773369903}
+  minDistanceForLos: 2
 --- !u!135 &1502679848
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2143,6 +2168,7 @@ MonoBehaviour:
   - {fileID: 2101941323}
   - {fileID: 1448224501}
   - {fileID: 1706230953}
+  minDistanceForLos: 2
 --- !u!135 &1686743354
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2199,6 +2225,7 @@ MonoBehaviour:
   - {fileID: 1448224501}
   - {fileID: 2101941323}
   - {fileID: 1686743353}
+  minDistanceForLos: 2
 --- !u!135 &1706230954
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2317,6 +2344,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 1502679847}
   - {fileID: 608365405}
+  minDistanceForLos: 2
 --- !u!135 &1773369904
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2492,6 +2520,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 902857865}
   - {fileID: 608365405}
+  minDistanceForLos: 2
 --- !u!135 &1876574223
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2641,6 +2670,7 @@ MonoBehaviour:
   - {fileID: 1448224501}
   - {fileID: 1686743353}
   - {fileID: 1706230953}
+  minDistanceForLos: 2
 --- !u!135 &2101941324
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2959,6 +2989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerObject: {fileID: 191218594}
+  enemyObject: {fileID: 175295794}
 --- !u!1 &3524457504913073780
 GameObject:
   m_ObjectHideFlags: 0
@@ -3505,6 +3536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   neighbours:
   - {fileID: 1083654885}
+  minDistanceForLos: 2
 --- !u!4 &8634772247241641426
 Transform:
   m_ObjectHideFlags: 0

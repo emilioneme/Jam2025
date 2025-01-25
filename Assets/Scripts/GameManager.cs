@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     //Player
     public GameObject playerObject;
+    public GameObject enemyObject;
 
     // Start is called before the first frame update
     void Start()
