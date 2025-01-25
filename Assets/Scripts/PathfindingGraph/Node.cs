@@ -25,6 +25,7 @@ public class Node : MonoBehaviour
 
             weights.Add(Vector3.Distance(this.transform.position, positions[i])); //dist to neighbour
         }
+
     }
 
     // Start is called before the first frame update
@@ -43,8 +44,14 @@ public class Node : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //OnDrawGizmos();
     }
+
+    void OnDrawGizmos()
+{
+    Gizmos.color = Color.red;
+    Gizmos.DrawSphere(this.transform.position, 1);
+}
 
     public bool hasLosToCaller(GameObject caller){
 
