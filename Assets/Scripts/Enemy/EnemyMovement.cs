@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -117,8 +118,11 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hitInfo.collider.transform == TargetTransform)
                 
-                swimmingSpeed = defaultSpeed + speedingSpeed * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
-                //swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
+                if(TargetTransform == TargetTransform.CompareTag("Player")){
+                    swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
+                } else {
+                    swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
+                }
             else
                 swimmingSpeed = defaultSpeed; // Use default speed otherwise
         }
