@@ -7,8 +7,8 @@ public class Node : MonoBehaviour
 {
     [SerializeField]
     List<Node> neighbours;
-    List<Vector3> positions;
-    List<float> weights;
+    List<Vector3> positions = new List<Vector3>();
+    List<float> weights = new List<float>();
     
     public List<Node> GetNeighbours(){
         return neighbours;
@@ -18,15 +18,26 @@ public class Node : MonoBehaviour
         return weights;
     }
 
+    void Awake() {
+        for(int i = 0; i < neighbours.Count; i++){
+            positions.Add(neighbours[i].transform.position); //position of neighbour
+
+            weights.Add(Vector3.Distance(this.transform.position, positions[i])); //dist to neighbour
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        for(int i = 0; i < neighbours.Count; i++){
-            positions[i] = neighbours[i].transform.position; //position of neighbour
-
-            weights[i] = Vector3.Distance(this.transform.position, positions[i]); //dist to neighbour
-        }
+        
+        /*
+        Debug.Log(this.gameObject.name + ": neighbour count: " + this.neighbours.Count);
+        Debug.Log(this.gameObject.name + ": weights count: " + this.weights.Count);
+        Debug.Log(this.gameObject.name + ": neighbours count func: " + this.GetNeighbours().Count);
+        Debug.Log(this.gameObject.name + ": weights count func: " + this.GetWeights().Count);
+        */
     }
+
 
     // Update is called once per frame
     void Update()

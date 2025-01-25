@@ -8,6 +8,9 @@ public class Fish : MonoBehaviour
     NodeManager nodeManager;
     Player player;
 
+    Node lastNode;
+    Node targetNode;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,13 +23,19 @@ public class Fish : MonoBehaviour
         
     }
 
-    void MoveToTarget() {
+    void GetTargetNode() {
         Node playerNode = nodeManager.ReturnClosest(player.gameObject);
         Node closestNode = GetClosestNode();
 
         //fish should only get path at each node trigger maybe, while pathing to player
-        //NodeManager.GetShortestPath();
+        List<Node> path = nodeManager.ShortestPath(closestNode, playerNode);
 
+        //go to next node
+        if(path[0] != lastNode){ //if the last node visited is not the closest
+            targetNode = path[0];
+        } else {
+            targetNode = path[1]; //go to next if closest is last visited
+        }
     }
 
     Node GetClosestNode() {

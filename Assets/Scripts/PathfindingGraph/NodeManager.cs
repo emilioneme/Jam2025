@@ -7,10 +7,27 @@ public class NodeManager : MonoBehaviour
 {
 
     List<Node> allNodes;
+
+    [SerializeField]
+
+
     // Start is called before the first frame update
     void Start()
-    {
+    { 
         allNodes = GetAllNodes();
+        /*
+        Debug.Log("after get all");
+        Debug.Log(allNodes[0].gameObject.name);
+        Debug.Log(allNodes[allNodes.Count - 1].gameObject.name);
+        Node node0 = GameObject.Find("Node").GetComponent<Node>();
+        Node node7 = GameObject.Find("Node 7").GetComponent<Node>();
+
+        Debug.Log("shortest path between" + node0.gameObject.name + " and "+ node7.gameObject.name + " : ");
+        List<Node> path = ShortestPath(node0, node7);
+        for(int i = 0; i < path.Count; i++){
+            Debug.Log(path[i].gameObject.name);
+        }
+        */
     }
 
     // Update is called once per frame
@@ -96,6 +113,7 @@ public class NodeManager : MonoBehaviour
             // Step 5: Check neighbors and update distances
             for (int i = 0; i < currentNode.GetNeighbours().Count; i++)
             {
+
                 Node neighbor = currentNode.GetNeighbours()[i];
                 float weight = currentNode.GetWeights()[i];
                 float newDist = distances[currentNode] + weight;
@@ -113,13 +131,13 @@ public class NodeManager : MonoBehaviour
 
         // Step 6: Reconstruct the shortest path
         List<Node> path = new List<Node>();
-        /* Node current = targetNode; //TODO FIX
+        Node current = end;
         while (current != null)
         {
             path.Insert(0, current);
             current = previousNodes[current];
         }
-        */
+        
         return path;
     }
 }
