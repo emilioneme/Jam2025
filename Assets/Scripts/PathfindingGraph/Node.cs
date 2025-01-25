@@ -10,6 +10,9 @@ public class Node : MonoBehaviour
     List<Node> neighbours;
     List<Vector3> positions = new List<Vector3>();
     List<float> weights = new List<float>();
+
+    [SerializeField]
+    float minDistanceForLos =2;
     
     public List<Node> GetNeighbours(){
         return neighbours;
@@ -61,7 +64,7 @@ public class Node : MonoBehaviour
         Vector3 direction = (caller.transform.position - this.transform.position).normalized;
         Debug.DrawRay(this.transform.position, (caller.transform.position - this.transform.position), Color.red);
         if(Physics.Raycast(transform.position, direction, out RaycastHit hitInfo)){
-            if(hitInfo.transform.gameObject == caller){
+            if(hitInfo.transform.gameObject == caller || Vector3.Distance(this.transform.position, caller.transform.position) < minDistanceForLos){
                 Debug.Log("True for : "  + this.gameObject.name + " to " + caller.gameObject.name);
                 return true;
             }

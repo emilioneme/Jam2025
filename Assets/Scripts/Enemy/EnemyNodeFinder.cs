@@ -25,6 +25,7 @@ public class EnemyNodeFinder : MonoBehaviour
         
     }
 
+/*
     public Node GetTargetNode() {
         Node endNode = nodeManager.ReturnClosest(gameManager.playerObject);
         Node closestNode = nodeManager.ReturnClosest(this.gameObject);
@@ -45,6 +46,27 @@ public class EnemyNodeFinder : MonoBehaviour
 
         return targetNode;
     }
+    */
+    public List<Node> GetTargetPath() {
+        Node endNode = nodeManager.ReturnClosest(gameManager.playerObject);
+        Node closestNode = nodeManager.ReturnClosest(this.gameObject);
+
+        //fish should only get path at each node trigger maybe, while pathing to player
+        List<Node> path = nodeManager.ShortestPath(closestNode, endNode);
+
+        for(int i = 0; i < path.Count; i++){
+            Debug.Log("Path "+ i + ": " + path[i].gameObject.name);
+        }
+
+        //go to next node
+        if(path[0] != lastNode || path.Count == 1){ //if the last node visited is not the closest
+            targetNode = path[0];
+        } else {
+            path.RemoveAt(0); //go to next if closest is last visited
+        }
+
+        return path;
+    }
     /*
     Node GetClosestNode() {
         return nodeManager.ReturnClosest(this.gameObject);
@@ -56,6 +78,9 @@ public class EnemyNodeFinder : MonoBehaviour
         {
             lastNode = other.GetComponent<Node>();
             Debug.Log("last node : " + lastNode.gameObject.name);
+
+            gameManager.enemyObject.GetComponent<EnemyMovement>().NextNode();
+
         }
     }
 }

@@ -60,6 +60,8 @@ public class EnemyMovement : MonoBehaviour
 
     float distance;
 
+    List<Node> path;
+
 
     public enum ChasingStates
     {
@@ -93,7 +95,9 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                TargetTransform = enemyNodeFinder.GetTargetNode().transform;
+                
+                path = enemyNodeFinder.GetTargetPath();
+                TargetTransform = path[0].transform;
             }
         }
         distance = Vector3.Distance(TargetTransform.position, this.transform.position);
@@ -181,5 +185,9 @@ public class EnemyMovement : MonoBehaviour
         direction = (currentTarget - transform.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    }
+
+    public void NextNode(){
+        TargetTransform = path[1].transform;
     }
 }
