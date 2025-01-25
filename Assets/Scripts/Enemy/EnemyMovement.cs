@@ -13,9 +13,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     EnemyNodeFinder enemyNodeFinder;
 
-    [SerializeField]
-    GameManager gameManager;
-
     
     Vector3 currentTarget;
     Vector3 directTarget;
@@ -73,15 +70,13 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Target transform = " + TargetTransform);
+        Debug.Log(TargetTransform);
 
         if(LOSToPlayer())
         {
-            Debug.Log("LOS TO PLAYER TRUE");
             TargetTransform = PlayerTransform;
         }else
         {
-            Debug.Log("No LOS to player");
             TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         }
 
@@ -124,8 +119,7 @@ public class EnemyMovement : MonoBehaviour
 
     private bool LOSToPlayer()
     {
-        Vector3 direction = (gameManager.playerObject.transform.position - this.transform.position).normalized;
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo))
         {
             if(hitInfo.transform.CompareTag("Player"))
             {

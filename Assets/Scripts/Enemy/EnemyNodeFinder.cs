@@ -27,7 +27,7 @@ public class EnemyNodeFinder : MonoBehaviour
 
     public Node GetTargetNode() {
         Node endNode = nodeManager.ReturnClosest(gameManager.playerObject);
-        Node closestNode = nodeManager.ReturnClosest(this.gameObject);
+        Node closestNode = GetClosestNode();
 
         //fish should only get path at each node trigger maybe, while pathing to player
         List<Node> path = nodeManager.ShortestPath(closestNode, endNode);
@@ -41,11 +41,10 @@ public class EnemyNodeFinder : MonoBehaviour
 
         return targetNode;
     }
-    /*
+
     Node GetClosestNode() {
         return nodeManager.ReturnClosest(this.gameObject);
     }
-    */
 
     void OnTriggerEnter(Collider other) {
         if(other.CompareTag("Node"))
