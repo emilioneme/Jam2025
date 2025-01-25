@@ -118,11 +118,15 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hitInfo.collider.transform == TargetTransform)
                 
-                if(TargetTransform == TargetTransform.CompareTag("Player")){
+                if(TargetTransform == TargetTransform.CompareTag("Player"))
+                {
                     swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
-                } else {
-                    swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
+                } 
+                else 
+                {
+                    swimmingSpeed = defaultSpeed; // Speed up when the target is directly ahead
                 }
+
             else
                 swimmingSpeed = defaultSpeed; // Use default speed otherwise
         }
