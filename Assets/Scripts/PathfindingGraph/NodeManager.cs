@@ -54,6 +54,8 @@ public class NodeManager : MonoBehaviour
             {
                 //Debug.Log("non null, found closest");
                 closestNode = node;
+            } else {
+                Debug.Log("return closest edge case: " + node.gameObject.name);
             }
         }
 
