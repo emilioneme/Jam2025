@@ -46,10 +46,12 @@ public class Node : MonoBehaviour
         
     }
 
-    public bool hasLosToEnemy(GameObject enemy){
+    public bool hasLosToCaller(GameObject caller){
 
-        if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo)){
-            if(hitInfo.transform.gameObject == enemy){
+        Vector3 direction = (caller.transform.position - this.transform.position).normalized;
+
+        if(Physics.Raycast(transform.position, direction, out RaycastHit hitInfo)){
+            if(hitInfo.transform.gameObject == caller){
                 return true;
             }
         }

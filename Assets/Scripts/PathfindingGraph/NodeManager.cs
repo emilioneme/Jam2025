@@ -42,13 +42,13 @@ public class NodeManager : MonoBehaviour
         Node closestNode = null;
         foreach (Node node in allNodes)
         {
-            if (closestNode == null)
+            if (closestNode == null && node.hasLosToCaller(caller))
             {
                 closestNode = node;
             }
             else if (Vector3.Distance(callerPos, node.transform.position)
              < Vector3.Distance(callerPos, closestNode.transform.position) 
-             && node.hasLosToEnemy(caller))
+             && node.hasLosToCaller(caller))
             {
                 closestNode = node;
             }
