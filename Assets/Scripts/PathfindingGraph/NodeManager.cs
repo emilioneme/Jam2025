@@ -13,7 +13,7 @@ public class NodeManager : MonoBehaviour
     void Start()
     { 
         allNodes = GetAllNodes();
-        Debug.Log(allNodes);
+        //yo
         /*
         Debug.Log("after get all");
         Debug.Log(allNodes[0].gameObject.name);
