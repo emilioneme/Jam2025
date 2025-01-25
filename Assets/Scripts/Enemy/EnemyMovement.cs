@@ -124,8 +124,10 @@ public class EnemyMovement : MonoBehaviour
     {
         Vector3 direction = (gameManager.playerObject.transform.position - this.transform.position).normalized;
         //Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position), Color.blue);
-        
-        if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo))
+        int layerToIgnore = LayerMask.NameToLayer("Node");
+        int layerMask = ~(1 << layerToIgnore); // Invert the mask to include all layers except "Node"
+
+        if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo, Mathf.Infinity, layerMask))
         {
             if(hitInfo.transform.CompareTag("Player"))
             {
