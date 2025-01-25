@@ -7,6 +7,16 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField]
     Transform TargetTransform; 
+
+    [SerializeField]
+    Transform PlayerTransform; 
+
+    [SerializeField]
+    EnemyNodeFinder enemyNodeFinder;
+
+    Transform NodeTransform;
+
+
     
     Vector3 currentTarget;
     Vector3 directTarget;
@@ -63,6 +73,15 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+
+        if(LOSToPlayer())
+        {
+            TargetTransform = PlayerTransform;
+        }else
+        {
+            TargetTransform = enemyNodeFinder.GetTargetNode().transform;
+        }
+
         distance = Vector3.Distance(TargetTransform.position, transform.position);
 
         if(TargetTransform == TargetTransform.CompareTag("Player") 
@@ -100,6 +119,10 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private bool LOSToPlayer()
+    {
+        throw new NotImplementedException();
+    }
 
     void FixedUpdate()
     {
