@@ -513,14 +513,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TargetTransform: {fileID: 131782588}
-  rotationSpeed: 1
+  rotationSpeed: 2
   swimmingSpeed: 0
-  defaultSpeed: 0.5
-  speedingSpeed: 4
+  defaultSpeed: 1
+  speedingSpeed: 2
   targetOffset: 1
   maxTargetDistance: 1000
   directChaseDistance: 100
-  rb: {fileID: 0}
+  currentState: 0
+  rb: {fileID: 943070900}
 --- !u!4 &943070902
 Transform:
   m_ObjectHideFlags: 0

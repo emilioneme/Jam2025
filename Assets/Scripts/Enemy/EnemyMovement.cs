@@ -37,19 +37,20 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     float directChaseDistance;
 
-    bool isMoving;
+    bool isMoving = true;
 
     Vector3 direction; 
 
     float distance;
 
-    enum ChasingStates
+
+    public enum ChasingStates
     {
         Predictive,
         Direct
     }
 
-    ChasingStates currentState = ChasingStates.Predictive;
+    public ChasingStates currentState = ChasingStates.Predictive;
 
     [SerializeField]
     Rigidbody rb; 
@@ -64,6 +65,24 @@ public class EnemyMovement : MonoBehaviour
     {
         distance = Vector3.Distance(TargetTransform.position, transform.position);
 
+        if(distance < directChaseDistance)
+        {
+            currentState = ChasingStates.Direct;
+        }else
+        {
+            currentState = ChasingStates.Predictive;
+        }
+        
+
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxTargetDistance))
+        {
+            if (hitInfo.collider.transform == TargetTransform)
+                swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
+            else
+                swimmingSpeed = defaultSpeed; // Use default speed otherwise
+        }
+        
+
         switch (currentState)
         {
             case ChasingStates.Predictive:
@@ -73,23 +92,26 @@ public class EnemyMovement : MonoBehaviour
                 DirectMovement();
                 break;
             default:
+                DirectMovement();
                 break;
         }
 
-        PredictiveMovement(); 
     }
 
     void FixedUpdate()
     {
         if (isMoving)
+        {
             rb.velocity = transform.forward * swimmingSpeed;
             RotatePlayer();
+        }
     }
 
     private void DirectMovement()
     {
         directTarget = TargetTransform.position;
         currentTarget = directTarget;
+
     }
 
     void PredictiveMovement()
