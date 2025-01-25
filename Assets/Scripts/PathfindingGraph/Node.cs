@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -43,5 +44,16 @@ public class Node : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public bool hasLosToEnemy(GameObject enemy){
+
+        if(Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo)){
+            if(hitInfo.transform.gameObject == enemy){
+                return true;
+            }
+        }
+
+        return false;
     }
 }
