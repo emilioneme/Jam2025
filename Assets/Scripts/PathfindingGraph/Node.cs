@@ -52,7 +52,7 @@ public class Node : MonoBehaviour
         //Debug.Log(caller.gameObject.name);
 
         Vector3 direction = (caller.transform.position - this.transform.position).normalized;
-
+        Debug.DrawRay(this.transform.position, (caller.transform.position - this.transform.position), Color.red);
         if(Physics.Raycast(transform.position, direction, out RaycastHit hitInfo)){
             if(hitInfo.transform.gameObject == caller){
                 //Debug.Log("True for : "  + this.gameObject.name + " to " + caller.gameObject.name);

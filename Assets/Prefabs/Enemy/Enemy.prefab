@@ -49,6 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerTransform: {fileID: 0}
   enemyNodeFinder: {fileID: 3528116566418383287}
+  gameManager: {fileID: 0}
   rotationSpeed: 2
   swimmingSpeed: 0
   defaultSpeed: 2
@@ -169,9 +170,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88bd7c13fabad854784c85564307a3d8, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7668986393108179601}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88bd7c13fabad854784c85564307a3d8, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 8313949549293272295}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 88bd7c13fabad854784c85564307a3d8, type: 3}
       insertIndex: -1
@@ -182,27 +180,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 88bd7c13fabad854784c85564307a3d8, type: 3}
   m_PrefabInstance: {fileID: 6484478796418930263}
   m_PrefabAsset: {fileID: 0}
---- !u!135 &7668986393108179601
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6141809048835025670}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 0.01
-  m_Center: {x: -0.0000000018626451, y: -0.007638153, z: 0.06}
 --- !u!114 &8313949549293272295
 MonoBehaviour:
   m_ObjectHideFlags: 0

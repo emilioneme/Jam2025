@@ -73,15 +73,13 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("Target transform = " + TargetTransform);
 
         if(LOSToPlayer())
         {
-            Debug.Log("LOS TO PLAYER TRUE");
             TargetTransform = PlayerTransform;
-        }else
+        }
+        else
         {
-            Debug.Log("No LOS to player");
             TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         }
 
@@ -125,6 +123,8 @@ public class EnemyMovement : MonoBehaviour
     private bool LOSToPlayer()
     {
         Vector3 direction = (gameManager.playerObject.transform.position - this.transform.position).normalized;
+        Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position).normalized, Color.red, 10000f);
+        
         if (Physics.Raycast(transform.position, direction, out RaycastHit hitInfo))
         {
             if(hitInfo.transform.CompareTag("Player"))
