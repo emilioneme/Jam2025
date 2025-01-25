@@ -48,14 +48,18 @@ public class Node : MonoBehaviour
 
     public bool hasLosToCaller(GameObject caller){
 
+        //Debug.Log("node los check: " + this.gameObject.name + " to " + caller.gameObject.name);
+        //Debug.Log(caller.gameObject.name);
+
         Vector3 direction = (caller.transform.position - this.transform.position).normalized;
 
         if(Physics.Raycast(transform.position, direction, out RaycastHit hitInfo)){
             if(hitInfo.transform.gameObject == caller){
+                //Debug.Log("True for : "  + this.gameObject.name + " to " + caller.gameObject.name);
                 return true;
             }
         }
-
+        //Debug.Log("False for : "  + this.gameObject.name + " to " + caller.gameObject.name);
         return false;
     }
 }
