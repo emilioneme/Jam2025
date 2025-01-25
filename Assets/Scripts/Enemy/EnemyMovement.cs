@@ -28,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField]
     float swimmingSpeed; 
+    //yo
 
     [SerializeField]
     float defaultSpeed; 
