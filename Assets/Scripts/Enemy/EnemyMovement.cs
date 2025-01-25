@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     Transform TargetTransform; 
     
     Vector3 currentTarget;
-
     Vector3 directTarget;
     Vector3 predictionTarget; 
 
@@ -37,8 +36,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     float directChaseDistance;
 
-    bool isMoving = true;
-
+    bool isMoving = true; 
+    
     Vector3 direction; 
 
     float distance;
@@ -47,8 +46,9 @@ public class EnemyMovement : MonoBehaviour
     public enum ChasingStates
     {
         Predictive,
-        Direct
+        Direct,
     }
+
 
     public ChasingStates currentState = ChasingStates.Predictive;
 
@@ -65,13 +65,15 @@ public class EnemyMovement : MonoBehaviour
     {
         distance = Vector3.Distance(TargetTransform.position, transform.position);
 
-        if(distance < directChaseDistance)
+        if(TargetTransform != TargetTransform.CompareTag("Player") && distance > directChaseDistance)
         {
             currentState = ChasingStates.Direct;
-        }else
+        }
+        else
         {
             currentState = ChasingStates.Predictive;
         }
+        
         
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxTargetDistance))
@@ -97,6 +99,7 @@ public class EnemyMovement : MonoBehaviour
         }
 
     }
+
 
     void FixedUpdate()
     {

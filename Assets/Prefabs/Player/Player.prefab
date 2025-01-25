@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4929589766958253985}
   - component: {fileID: 2361107427823103341}
   - component: {fileID: 2906727270740561961}
-  - component: {fileID: 6709568154542696379}
+  - component: {fileID: 138814153288316327}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -386,11 +386,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookXSensitivity: 3
   lookYSensitivity: 3
-  forwardSrintingSpeed: 3
-  forwardSpeed: 2.5
-  backSpeed: 1.5
-  strafeSpeed: 1.5
-  verticalSpeed: 1.5
+  forwardSrintingSpeed: 5
+  forwardSpeed: 5
+  backSpeed: 2
+  strafeSpeed: 2
+  verticalSpeed: 2
   rb: {fileID: 2906727270740561961}
 --- !u!54 &2906727270740561961
 Rigidbody:
@@ -419,8 +419,8 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!136 &6709568154542696379
-CapsuleCollider:
+--- !u!135 &138814153288316327
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -437,11 +437,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.25
-  m_Height: 2
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 3
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0.28}
 --- !u!1 &7664821540765727957
 GameObject:
   m_ObjectHideFlags: 0
