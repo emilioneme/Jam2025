@@ -33,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
 
     private float pitch = 0f; // Vertical rotation (pitch)
 
+    public bool canMove = true;
+
+    public bool canLook = true;
+
     [SerializeField]
     Rigidbody rb;
 
@@ -45,8 +49,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Look();
-        Movement();
+        if(canMove)
+        {
+            Movement();
+        }
+
+        if(canLook)
+        {
+           Look(); 
+        }
     }
 
     void Movement()

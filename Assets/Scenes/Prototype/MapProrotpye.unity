@@ -2391,6 +2391,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 447067505466453661, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 3454295135138544526}
+    - target: {fileID: 447067505466453661, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: nodeManager
+      value: 
+      objectReference: {fileID: 5807759309961199708}
+    - target: {fileID: 2445717344756835426, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: Gap
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 2495042773884277772, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -2403,6 +2415,18 @@ PrefabInstance:
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 191218598}
+    - target: {fileID: 3981775769014422980, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981775769014422980, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: m_Center.y
+      value: -0.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981775769014422980, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: m_Center.z
+      value: 1.65
+      objectReference: {fileID: 0}
     - target: {fileID: 5062367496401527828, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.8
@@ -4429,7 +4453,6 @@ MeshCollider:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 477310190}
   - {fileID: 217926259}
   - {fileID: 8634772247241641426}
   - {fileID: 8082848518515437496}
