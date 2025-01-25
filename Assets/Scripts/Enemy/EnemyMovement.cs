@@ -66,14 +66,14 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        TargetTransform = enemyNodeFinder.GetTargetNode().transform;
+        //TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         rb = GetComponent<Rigidbody>(); // Assign the Rigidbody
         swimmingSpeed = defaultSpeed; 
     }
 
     void Update()
     {
-        Debug.Log("Target transform = " + TargetTransform);
+        //Debug.Log("Target transform = " + TargetTransform);
 
         if(LOSToPlayer())
         {
