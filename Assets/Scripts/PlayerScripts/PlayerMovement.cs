@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField]
+    float forwardSrintingSpeed = 3f;
+    [SerializeField]
     float forwardSpeed = 5f;
     [SerializeField]
     float backSpeed = 1f;
@@ -19,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     float strafeSpeed = 5f;
     [SerializeField]
     float verticalSpeed = 5f;
+
+    float forwardSpeedCurrent = 5f;
 
     private float movementHorizontal = 0f;
     private float movementVertical = 0f;
@@ -47,6 +51,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
+        forwardSpeedCurrent = Input.GetKey(KeyCode.LeftControl) ? forwardSrintingSpeed : forwardSpeed;
         // Get keyboard inputs for movement
         if(Input.GetAxis("Vertical") < 0)
         {
@@ -54,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            movementVertical = Input.GetAxis("Vertical") * forwardSpeed;
+            movementVertical = Input.GetAxis("Vertical") * forwardSpeedCurrent;
         }
 
         movementHorizontal = Input.GetAxis("Horizontal") * strafeSpeed;
