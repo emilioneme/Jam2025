@@ -6,15 +6,21 @@ using UnityEngine.UI;
 public class healthOxygen : MonoBehaviour
 {
     [Header("Health Bar")]
-    public int maxHealth = 100; // Maximum health
-    private int currentHealth; // Current health
+    public int maxHealth = 60; // Maximum health
+    private int currentOxygen; // Current health
     private float timer = 0f; // Timer to track seconds
 
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth; // Set the initial health
+        currentOxygen = maxHealth; // Set the initial health at the beginning of the game
 
+    }
+
+    // call for current oxygen meter of player to display
+    public int GetOxygen()
+    {
+        return currentOxygen;
     }
 
     // Update is called once per frame
@@ -27,22 +33,35 @@ public class healthOxygen : MonoBehaviour
         if (timer >= 1f)
         {
             timer = 0f; // Reset the timer
-            DecreaseHealth(); // Call the function to decrease health
+            DecreaseOxygen(); // Call the function to decrease health
         }
     }
 
-    // Function to decrease health and update the slider
-    void DecreaseHealth()
+    // Function to decrease health ambiently
+    void DecreaseOxygen()
     {
-        if (currentHealth > 0)
+        if (currentOxygen > 0)
         {
-            currentHealth--; // Decrease health by 1
-            Debug.Log(currentHealth);
+            currentOxygen--; // Decrease health by 1
+            Debug.Log(currentOxygen); // placeholder till we can have the diagetic display of time on player's arm(?)
         }
         else
         {
-            // Optional: Handle what happens when health reaches 0
-            Debug.Log("Health depleted!");
+            // Handle what happens when health reaches 0
+            Debug.Log("Ded");
         }
+    }
+
+    // Fish fear me, women won't look me in the eyes, no animal on this Earth can stand to be near me. I am alone on this green planet.
+    // Public function for calling every time an actor damages the player, since I'm making currentOxygen private.
+    public void InjurePlayer(int dmg)
+    {
+         currentOxygen = Mathf.Max(currentOxygen - dmg, 0); // Prevent going below 0
+    }
+
+    // for da bubbles if we ever add any way to increase player oxygen in game
+    public void HealPlayer(int amt)
+    {
+        currentOxygen += amt;
     }
 }
