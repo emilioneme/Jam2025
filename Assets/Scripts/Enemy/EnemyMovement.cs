@@ -5,6 +5,14 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+
+    [Header("CooldownThingy")]
+    [SerializeField]
+    float cooldown = 3f;
+    [SerializeField]
+    float lastTimeUsed = 0f;
+
+
     [SerializeField]
     Transform TargetTransform; 
 
@@ -74,16 +82,20 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-
-        if(LOSToPlayer())
+        if(Time.time > lastTimeUsed + cooldown)
         {
-            TargetTransform = PlayerTransform;
-        }
-        else
-        {
-            TargetTransform = enemyNodeFinder.GetTargetNode().transform;
-        }
 
+            lastTimeUsed = Time.time;
+        
+            if(LOSToPlayer())
+            {
+                TargetTransform = PlayerTransform;
+            }
+            else
+            {
+                TargetTransform = enemyNodeFinder.GetTargetNode().transform;
+            }
+        }
         distance = Vector3.Distance(TargetTransform.position, this.transform.position);
 
         if(TargetTransform == TargetTransform.CompareTag("Player") 
