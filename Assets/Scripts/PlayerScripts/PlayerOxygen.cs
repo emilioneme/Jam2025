@@ -56,8 +56,9 @@ public class PlayerOxygen : MonoBehaviour
 
     void Die(bool bitenByEnemy = false)
     {
-        gameObject.GetComponent<PlayerMovement>().canMove = true;
+        gameObject.GetComponent<PlayerMovement>().canMove = false;
         StartCoroutine(DeathScreen());
+        rb.useGravity = true;
 
     }
 
@@ -66,6 +67,7 @@ public class PlayerOxygen : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         gameObject.GetComponent<PlayerMovement>().canLook = false;
+        
     }
 
     void OnCollisionEnter(Collision collider)
@@ -74,6 +76,7 @@ public class PlayerOxygen : MonoBehaviour
         if(collider.transform.CompareTag("Enemy"))
         {
             Die(true);
+            Debug.Log("Die");
         }   
 
         /*
