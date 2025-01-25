@@ -46,7 +46,9 @@ public class NodeManager : MonoBehaviour
             {
                 closestNode = node;
             }
-            else if (Vector3.Distance(callerPos, node.transform.position) < Vector3.Distance(callerPos, closestNode.transform.position) && node.hasLosToEnemy(caller))
+            else if (Vector3.Distance(callerPos, node.transform.position)
+             < Vector3.Distance(callerPos, closestNode.transform.position) 
+             && node.hasLosToEnemy(caller))
             {
                 closestNode = node;
             }

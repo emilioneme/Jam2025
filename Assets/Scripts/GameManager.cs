@@ -8,12 +8,6 @@ public class GameManager : MonoBehaviour
     //Player
     public GameObject playerObject;
 
-    //Fish
-    GameObject fish;
-
-    //NodeManager
-    GameObject nodeManager;
-
     // Start is called before the first frame update
     void Start()
     {
