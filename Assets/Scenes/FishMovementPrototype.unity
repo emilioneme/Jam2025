@@ -2380,10 +2380,6 @@ PrefabInstance:
       propertyPath: PlayerTransform
       value: 
       objectReference: {fileID: 1413453371}
-    - target: {fileID: 595132520224980177, guid: 0e2fca1e502e8e547aec7906e0e1452d, type: 3}
-      propertyPath: minDistanceToBePredictive
-      value: 50
-      objectReference: {fileID: 0}
     - target: {fileID: 2051883781196092463, guid: 0e2fca1e502e8e547aec7906e0e1452d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.5
