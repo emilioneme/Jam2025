@@ -70,6 +70,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(TargetTransform);
 
         if(LOSToPlayer())
         {
