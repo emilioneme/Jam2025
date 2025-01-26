@@ -11,7 +11,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField]
     int maxRandomOffset = 2;
 
-    int randomOffset = Random.Range(-1, 1);
+    int randomOffset;
 
     [SerializeField]
     PlayerOxygen playerOxygen;
@@ -64,7 +64,7 @@ public class PlayerUI : MonoBehaviour
         // Format seconds to always display two digits (e.g., 02)
         string minuteTimer = minutes.ToString() + ":" + seconds.ToString("D2");
         */
-        
+
         // Calculate oxygen level percentage
         float oxygenLevel = ((float)(playerOxygen.currentHealth + randomOffset) / playerOxygen.maxHealth) * 100;
 

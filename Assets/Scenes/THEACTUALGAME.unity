@@ -743,6 +743,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b82058ea86713f40a3fd9d85aed289f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minRandomOffset: -2
+  maxRandomOffset: 2
   playerOxygen: {fileID: 1826669094}
   happySptire: {fileID: 21300000, guid: 2788583c1a8379e458f6afa5e8d94c16, type: 3}
   panicSptire: {fileID: 21300000, guid: 99accdaea642f2c499231f0763aaa721, type: 3}
@@ -750,6 +752,7 @@ MonoBehaviour:
   warningImage: {fileID: 1826669093}
   timerText: {fileID: 73188043}
   currentState: 0
+  randomOffsetCooldown: 1
 --- !u!1 &197984046
 GameObject:
   m_ObjectHideFlags: 0
