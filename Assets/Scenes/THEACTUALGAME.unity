@@ -720,20 +720,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4929589766958253985, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
   m_PrefabInstance: {fileID: 1826669092}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &191218603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191218594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3cc80825b237e144a1fe9d6754f4a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pickUpEggSoundPrefab: {fileID: 1862158135764687704, guid: 53b9c133da85a6e4cbe0cb741c1fc1af, type: 3}
-  gameManager: {fileID: 3454295135138544526}
 --- !u!1 &197984046
 GameObject:
   m_ObjectHideFlags: 0
@@ -12633,6 +12619,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 3454295135138544526}
+    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: pickUpEggSoundPrefab
+      value: 
+      objectReference: {fileID: 1862158135764687704, guid: 53b9c133da85a6e4cbe0cb741c1fc1af, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1276719970043619467, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
