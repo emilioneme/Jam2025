@@ -4768,7 +4768,7 @@ MonoBehaviour:
   shriekSoundPrefab: {fileID: 7346912754038962560, guid: 5d33908a3dab1bd4c8d3b53d87fdda44, type: 3}
   shriekSound2Prefab: {fileID: 4122315090833067309, guid: de7b70499c15d8049b3afa2e3de72b56, type: 3}
   shriekSound3Prefab: {fileID: 1401767830305005732, guid: 4a7f6f98e20001e43972fb1f282ae418, type: 3}
-  cooldown: 3
+  cooldown: 5
   lastTimeUsed: 0
 --- !u!1 &1083654884
 GameObject:
