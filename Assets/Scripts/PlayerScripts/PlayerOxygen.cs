@@ -18,7 +18,7 @@ public class PlayerOxygen : MonoBehaviour
     [Header("Health Bar")]
     public int maxHealth = 100; // Maximum health
     [SerializeField]
-    private int currentHealth; // Current health
+    public int currentHealth; // Current health
 
     Rigidbody rb;
 

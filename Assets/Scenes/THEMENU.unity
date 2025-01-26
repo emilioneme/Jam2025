@@ -1218,6 +1218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadingPanel: {fileID: 892207450}
   loadingBar: {fileID: 822080932}
+  timeIncreaseMultiplier: 10
 --- !u!4 &2035618894
 Transform:
   m_ObjectHideFlags: 0
