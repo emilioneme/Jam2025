@@ -4,10 +4,17 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerOxygen : MonoBehaviour
 {
+    [Header("DeathCanvas")]
+    [SerializeField]
+    Canvas DeathCanvas;
+    [SerializeField]
+    float DeathScreenDuration = 6;
+
     [Header("Health Bar")]
     public int maxHealth = 100; // Maximum health
     [SerializeField]
@@ -19,6 +26,7 @@ public class PlayerOxygen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        DeathCanvas.enabled = false;
         rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth; // Set the initial health
         StartCoroutine(DecreaseHealthOverTime()); // Start the coroutine
@@ -41,7 +49,7 @@ public class PlayerOxygen : MonoBehaviour
         // Optional: Handle what happens when health reaches 0
         if(currentHealth <= 0)
         {
-            Die(false);
+            Die();
         }
     }
 
@@ -57,12 +65,11 @@ public class PlayerOxygen : MonoBehaviour
     }
 
 
-    void Die(bool bitenByEnemy = false)
+    void Die()
     {
         gameObject.GetComponent<PlayerMovement>().canMove = false;
         StartCoroutine(DeathScreen());
         rb.useGravity = true;
-
     }
 
 
@@ -70,7 +77,17 @@ public class PlayerOxygen : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         gameObject.GetComponent<PlayerMovement>().canLook = false;
-        
+        DeathCanvas.enabled = true;
+        StartCoroutine(LoadSceneAsync("THEMENU"));
+    }
+
+    // Coroutine to handle asynchronous scene loadingSSS
+    private IEnumerator LoadSceneAsync(string sceneName)
+    {
+        yield return new WaitForSeconds(DeathScreenDuration);
+
+        // Optional: Hide the loading screen once done
+        SceneManager.LoadScene(sceneName);
     }
 
     void OnCollisionEnter(Collision collider)
@@ -78,15 +95,9 @@ public class PlayerOxygen : MonoBehaviour
 
         if(collider.transform.CompareTag("Enemy"))
         {
-            Die(true);
+            Die();
         }   
 
-        /*
-        if(collider.transform.CompareTag("OxygenPack"))
-        {
-            AddOxygen(10);
-        }
-        //*/
     }
 
 }
