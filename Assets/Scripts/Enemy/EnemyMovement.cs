@@ -96,7 +96,6 @@ public class EnemyMovement : MonoBehaviour
             }
             else
             {
-                
                 path = enemyNodeFinder.GetTargetPath();
                 TargetTransform = path[0].transform;
             }
@@ -119,7 +118,8 @@ public class EnemyMovement : MonoBehaviour
             if (hitInfo.collider.transform == TargetTransform)
                 
                 if(TargetTransform == TargetTransform.CompareTag("Player")){
-                    swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
+                    //swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
+                    swimmingSpeed = speedingSpeed;
                 } else {
                     swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
                 }
@@ -194,6 +194,7 @@ public class EnemyMovement : MonoBehaviour
     }
 
     public void NextNode(){
-        TargetTransform = path[1].transform;
+        path.RemoveAt(0);
+        TargetTransform = path[0].transform;
     }
 }
