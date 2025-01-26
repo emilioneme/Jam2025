@@ -11,9 +11,17 @@ public class PlayerOxygen : MonoBehaviour
 {
     [Header("DeathCanvas")]
     [SerializeField]
-    Canvas DeathCanvas;
+    Image BloodImage;
+
     [SerializeField]
-    float DeathScreenDuration = 6;
+    Image DeathImage;
+    [SerializeField]
+    float bloodDuration = 3;
+    [SerializeField]
+    float deathScreenDuration = 4;
+
+    [SerializeField]
+    float paralysisDuration = 2;
 
     [Header("Health Bar")]
     public int maxHealth = 100; // Maximum health
@@ -26,7 +34,7 @@ public class PlayerOxygen : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DeathCanvas.enabled = false;
+        
         rb = GetComponent<Rigidbody>();
         currentHealth = maxHealth; // Set the initial health
         StartCoroutine(DecreaseHealthOverTime()); // Start the coroutine
@@ -54,40 +62,41 @@ public class PlayerOxygen : MonoBehaviour
     }
 
 
-    void AddOxygen(int amount)
+    IEnumerator Die()
     {
-        currentHealth += amount;
-    }
-
-    void TakeOxygen(int amount)
-    {
-        currentHealth -= amount;
-    }
-
-
-    void Die()
-    {
+        // Disable player movement and enable gravity
         gameObject.GetComponent<PlayerMovement>().canMove = false;
-        StartCoroutine(DeathScreen());
         rb.useGravity = true;
-    }
 
+        // Wait for the paralysis duration
+        yield return new WaitForSeconds(paralysisDuration);
 
-    IEnumerator DeathScreen()
-    {
-        yield return new WaitForSeconds(3f);
+        // Disable player looking
         gameObject.GetComponent<PlayerMovement>().canLook = false;
-        DeathCanvas.enabled = true;
-        StartCoroutine(LoadSceneAsync("THEMENU"));
-    }
 
-    // Coroutine to handle asynchronous scene loadingSSS
-    private IEnumerator LoadSceneAsync(string sceneName)
-    {
-        yield return new WaitForSeconds(DeathScreenDuration);
+        // Set BloodImage transparency
+        Color bloodColor = BloodImage.color;
+        bloodColor.a = .33f; // Fully opaque
+        BloodImage.color = bloodColor;
 
-        // Optional: Hide the loading screen once done
-        SceneManager.LoadScene(sceneName);
+        // Wait for blood duration
+        yield return new WaitForSeconds(bloodDuration);
+
+        // Set DeathImage transparency
+        Color deathColor = DeathImage.color;
+        deathColor.a = 1f; // Fully opaque
+        DeathImage.color = deathColor;
+
+        // Set BloodImage transparency
+        bloodColor = BloodImage.color;
+        bloodColor.a = 0f; // Fully opaque
+        BloodImage.color = bloodColor;
+
+        // Wait for death screen duration
+        yield return new WaitForSeconds(deathScreenDuration);
+
+        // Load the menu scene
+        SceneManager.LoadScene("THEMENU");
     }
 
     void OnCollisionEnter(Collision collider)
@@ -95,7 +104,7 @@ public class PlayerOxygen : MonoBehaviour
 
         if(collider.transform.CompareTag("Enemy"))
         {
-            Die();
+            StartCoroutine(Die());
         }   
 
     }

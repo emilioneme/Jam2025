@@ -37,7 +37,7 @@ public class EnemyMovement : MonoBehaviour
 
     [Header("Movement")]
     [SerializeField]
-    float swimmingSpeed;
+    public float swimmingSpeed;
 
     [SerializeField]
     float defaultSpeed;
@@ -63,7 +63,7 @@ public class EnemyMovement : MonoBehaviour
 
     List<Node> path;
 
-    float maxSpeed;
+    public float maxSpeed;
     float speedIncrement;
 
 
@@ -145,7 +145,7 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
-    private bool LOSToPlayer()
+    public bool LOSToPlayer()
     {
         Vector3 direction = (gameManager.playerObject.transform.position - this.transform.position).normalized;
         //Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position), Color.blue, cooldown);
