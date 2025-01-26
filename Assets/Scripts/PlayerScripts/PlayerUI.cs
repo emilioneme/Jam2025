@@ -7,11 +7,11 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
-    float minRandomOffset = -2;
+    int minRandomOffset = -2;
     [SerializeField]
-    float maxRandomOffset = 2;
+    int maxRandomOffset = 2;
 
-    float randomOffset = Random.Range(-1, 1);
+    int randomOffset = Random.Range(-1, 1);
 
     [SerializeField]
     PlayerOxygen playerOxygen;
@@ -49,18 +49,27 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.time > lastTimeOffsetted + randomOffsetCooldown)
+        // Handle random offset cooldown
+        if (Time.time > lastTimeOffsetted + randomOffsetCooldown)
         {
             lastTimeOffsetted = Time.time;
+            randomOffset = Random.Range(minRandomOffset, maxRandomOffset);
         }
 
+        /*
+        // Calculate minutes and seconds for timer
         int minutes = playerOxygen.currentHealth / 60;
-        int seconds = playerOxygen.currentHealth - (minutes * 60);
-        string minuteTimer = minutes.ToString() + ":" + seconds.ToString();
+        int seconds = playerOxygen.currentHealth % 60; // Use modulus for cleaner code
 
-        float oxygenLevel = playerOxygen.currentHealth + randomOffset;
+        // Format seconds to always display two digits (e.g., 02)
+        string minuteTimer = minutes.ToString() + ":" + seconds.ToString("D2");
+        */
+        
+        // Calculate oxygen level percentage
+        float oxygenLevel = ((float)(playerOxygen.currentHealth + randomOffset) / playerOxygen.maxHealth) * 100;
 
-        timerText.text = oxygenLevel.ToString() + " o2" + "\n" + minuteTimer;
+        // Update text with oxygen level and timer
+        timerText.text = oxygenLevel.ToString("F1") + "% o2";
 
 
         if(playerOxygen.currentHealth > (playerOxygen.maxHealth / 3) * 2)
