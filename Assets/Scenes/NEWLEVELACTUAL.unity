@@ -17436,12 +17436,36 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3271b214c42785d48a27552ce60b962c, type: 2}
+    - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: m_fontColor.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.13902307
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -4692406571814669915, guid: 3271b214c42785d48a27552ce60b962c, type: 2}
+    - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 16777215
+      value: 65315
+      objectReference: {fileID: 0}
+    - target: {fileID: 3333789730744849686, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3438633431528503406, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: m_LocalScale.x
@@ -57351,8 +57375,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3271b214c42785d48a27552ce60b962c, type: 2}
+  m_sharedMaterial: {fileID: -4692406571814669915, guid: 3271b214c42785d48a27552ce60b962c, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
