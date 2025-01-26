@@ -41,6 +41,6 @@ public class StartGame : MonoBehaviour
         }
 
         // Optional: Hide the loading screen once done
-        SceneManager.LoadScene("THEGAME");
+        SceneManager.LoadScene(sceneName);
     }
 }
