@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-
     bool CanWinNow;
     int eggCounter;
     int maxEggs = 3;
@@ -39,6 +38,9 @@ public class PlayerInteract : MonoBehaviour
     }
     void Start()
     {
+        DoorOpenSound = Instantiate(DoorOpenSoundPrefab);
+        Destroy(DoorOpenSound, 24f);
+
         EnterLevelIntroSound = Instantiate(EnterLevelIntroSoundPrefab);
         Destroy(EnterLevelIntroSound, 24f);
         
@@ -57,19 +59,21 @@ public class PlayerInteract : MonoBehaviour
             Destroy(other.gameObject);
             eggCounter = eggCounter + 1;
 
+            gameManager.playerObject.GetComponent<HeartBeatMaker>().increaseBPM();
+
             switch(eggCounter){
 
-                case 0:
+                case 1:
                     pickUp1EggSound = Instantiate(pickUp1EggSoundPrefab);
                     Destroy(pickUp1EggSound, 15f);
                     break;
 
-                case 1:
+                case 2:
                     pickUp2EggSound = Instantiate(pickUp2EggSoundPrefab);
                     Destroy(pickUp2EggSound, 15f);
                     break;
 
-                case 2:
+                case 3:
                     pickUp3EggSound = Instantiate(pickUp3EggSoundPrefab);
                     Destroy(pickUp3EggSound, 15f);
                     break;
