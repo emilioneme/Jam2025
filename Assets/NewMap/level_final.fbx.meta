@@ -3,7 +3,12 @@ guid: ebbfaf1b069c7c343904c9d4803a0f83
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: atlas_graffiti_tags_small
+    second: {fileID: 2100000, guid: 5df03d84f0601f7479f04533cc107a1f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
