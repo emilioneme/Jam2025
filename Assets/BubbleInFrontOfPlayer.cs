@@ -5,7 +5,7 @@ using UnityEngine;
 public class BubbleInFrontOfPlayer : MonoBehaviour
 {
     [SerializeField]
-    Transform PlayerTransform;
+    Transform CameraTransform;
 
     [SerializeField]
     float multiplier;
@@ -20,6 +20,6 @@ public class BubbleInFrontOfPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = PlayerTransform.forward * multiplier;
+        gameObject.transform.position = CameraTransform.position;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -13,6 +14,8 @@ public class PlayerOxygen : MonoBehaviour
     private int currentHealth; // Current health
 
     Rigidbody rb;
+
+    GameManager gameManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -76,7 +79,6 @@ public class PlayerOxygen : MonoBehaviour
         if(collider.transform.CompareTag("Enemy"))
         {
             Die(true);
-            Debug.Log("Die");
         }   
 
         /*
