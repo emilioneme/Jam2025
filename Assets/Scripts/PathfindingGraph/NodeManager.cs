@@ -12,7 +12,7 @@ public class NodeManager : MonoBehaviour
     // Start is called before the first frame update
 
     void Start()
-    { 
+    {
         allNodes = GetAllNodes();
         /*
         Debug.Log("after get all");
@@ -49,17 +49,19 @@ public class NodeManager : MonoBehaviour
                 closestNode = node;
             }
             else if (closestNode != null && Vector3.Distance(callerPos, node.transform.position)
-             < Vector3.Distance(callerPos, closestNode.transform.position) 
+             < Vector3.Distance(callerPos, closestNode.transform.position)
              && node.hasLosToCaller(caller))
             {
                 //Debug.Log("non null, found closest");
                 closestNode = node;
-            } else {
+            }
+            else
+            {
                 Debug.Log("return closest edge case: " + node.gameObject.name);
             }
         }
 
-        //Debug.Log("returning closest as: " + closestNode.gameObject.name);
+        Debug.Log("returning closest as: " + closestNode.gameObject.name);
 
         return closestNode;
     }
@@ -82,70 +84,83 @@ public class NodeManager : MonoBehaviour
         return nodes;
     }
 
-    public List<Node> ShortestPath(Node start, Node end){
-        // Dijkstra's algorithm implementation
-        // Step 1: Initialize the distance and previous node dictionaries
-        Dictionary<Node, float> distances = new Dictionary<Node, float>();
-        Dictionary<Node, Node> previousNodes = new Dictionary<Node, Node>();
-        List<Node> unvisitedNodes = new List<Node>();
+    
+        public List<Node> ShortestPath(Node start, Node end){
+            // Dijkstra's algorithm implementation
+            // Step 1: Initialize the distance and previous node dictionaries
+            Dictionary<Node, float> distances = new Dictionary<Node, float>();
+            Dictionary<Node, Node> previousNodes = new Dictionary<Node, Node>();
+            List<Node> unvisitedNodes = new List<Node>();
 
-        // Step 2: Initialize all nodes in the graph
-        foreach (var node in GetAllNodes()) // Replace with your own node list
-        {
-            distances[node] = Mathf.Infinity;
-            previousNodes[node] = null;
-            unvisitedNodes.Add(node);
-        }
-
-        // Step 3: Set the distance to the start node to 0
-        distances[start] = 0;
-
-        // Step 4: While there are unvisited nodes
-        while (unvisitedNodes.Count > 0)
-        {
-            // Find the node with the smallest distance
-            Node currentNode = null;
-            foreach (var node in unvisitedNodes)
+            // Step 2: Initialize all nodes in the graph
+            foreach (var node in GetAllNodes()) // Replace with your own node list
             {
-                if (currentNode == null || distances[node] < distances[currentNode])
-                {
-                    currentNode = node;
-                }
+                distances[node] = Mathf.Infinity;
+                previousNodes[node] = null;
+                unvisitedNodes.Add(node);
             }
 
-            // If the smallest distance is infinity, the target is unreachable
-            if (distances[currentNode] == Mathf.Infinity)
-                break;
+            // Step 3: Set the distance to the start node to 0
+            distances[start] = 0;
 
-            // Step 5: Check neighbors and update distances
-            for (int i = 0; i < currentNode.GetNeighbours().Count; i++)
+            // Step 4: While there are unvisited nodes
+            while (unvisitedNodes.Count > 0)
             {
-
-                Node neighbor = currentNode.GetNeighbours()[i];
-                float weight = currentNode.GetWeights()[i];
-                float newDist = distances[currentNode] + weight;
-
-                if (newDist < distances[neighbor])
+                // Find the node with the smallest distance
+                Node currentNode = null;
+                foreach (var node in unvisitedNodes)
                 {
-                    distances[neighbor] = newDist;
-                    previousNodes[neighbor] = currentNode;
+                    if (currentNode == null || distances[node] < distances[currentNode])
+                    {
+                        currentNode = node;
+                    }
                 }
+
+                // If the smallest distance is infinity, the target is unreachable
+                if (distances[currentNode] == Mathf.Infinity)
+                    break;
+
+                // Step 5: Check neighbors and update distances
+                for (int i = 0; i < currentNode.GetNeighbours().Count; i++)
+                {
+                    Debug.Log("Current: " + currentNode.gameObject.name);
+                    
+                    Node neighbor = currentNode.GetNeighbours()[i];
+
+                    Debug.Log("Neighbour: " + neighbor.gameObject.name);
+
+                    float weight = currentNode.GetWeights()[i];
+
+                    Debug.Log("weight: " + weight);
+
+                    float newDist = distances[currentNode] + weight;
+
+                    Debug.Log("newDist: " + newDist);
+
+                    if (newDist < distances[neighbor])
+                    {
+                        distances[neighbor] = newDist;
+                        previousNodes[neighbor] = currentNode;
+                    }
+                }
+
+                // Mark the current node as visited
+                unvisitedNodes.Remove(currentNode);
             }
 
-            // Mark the current node as visited
-            unvisitedNodes.Remove(currentNode);
-        }
+            // Step 6: Reconstruct the shortest path
+            List<Node> path = new List<Node>();
+            Node current = end;
+            while (current != null)
+            {
+                Debug.Log("current added to path: " + current.gameObject.name);
+                path.Insert(0, current);
+                current = previousNodes[current];
 
-        // Step 6: Reconstruct the shortest path
-        List<Node> path = new List<Node>();
-        Node current = end;
-        while (current != null)
-        {
-            path.Insert(0, current);
-            current = previousNodes[current];
+            }
+
+            return path;
         }
-        
-        return path;
-    }
+    
 
 }
