@@ -81,9 +81,9 @@ public class EnemyNodeFinder : MonoBehaviour
         {
             List<Node> path = nodeManager.ShortestPath(closestNode, endNode);
             //for (int i = 0; i < path.Count; i++)
-           // {
-                //Debug.Log("Path " + i + ": " + path[i].gameObject.name);
-           // }
+            // {
+            //Debug.Log("Path " + i + ": " + path[i].gameObject.name);
+            // }
 
 
             //go to next node
@@ -97,8 +97,20 @@ public class EnemyNodeFinder : MonoBehaviour
             }
 
             return path;
-        } else {
+        }
+        else
+        {
             List<Node> path = new List<Node>();
+
+            Vector3 direction = (lastNode.transform.position - gameManager.enemyObject.transform.position).normalized;
+
+            if (Physics.Raycast(gameManager.enemyObject.transform.position, direction, out RaycastHit hitInfo))
+            {
+                if (hitInfo.transform.gameObject != lastNode)
+                {
+                    gameManager.enemyObject.GetComponent<EnemyMovement>().directionFlip = -1;
+                }
+            }
             path.Add(lastNode);
             return path;
         }
