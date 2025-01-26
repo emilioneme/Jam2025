@@ -19,7 +19,7 @@ public class StartGame : MonoBehaviour
     // Function to load Scene 2 asynchronously with a progress bar
     public void LoadTHEGAMEAsync()
     {
-        StartCoroutine(LoadSceneAsync("THEGAME"));
+        StartCoroutine(LoadSceneAsync("THEACTUALGAME"));
     }
 
     // Coroutine to handle asynchronous scene loading
