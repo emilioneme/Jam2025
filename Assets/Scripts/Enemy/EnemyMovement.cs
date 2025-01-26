@@ -84,7 +84,7 @@ public class EnemyMovement : MonoBehaviour
         //TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         rb = GetComponent<Rigidbody>(); // Assign the Rigidbody
         swimmingSpeed = defaultSpeed;
-        maxSpeed = gameManager.playerObject.GetComponent<PlayerMovement>().forwardSrintingSpeed;
+        maxSpeed = gameManager.playerObject.GetComponent<PlayerMovement>().forwardSrintingSpeed + 1;
         speedIncrement = (maxSpeed - defaultSpeed) / 3;
     }
 
@@ -197,7 +197,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void NextNode()
     {
-        Debug.Log("Next Node");
+        //Debug.Log("Next Node");
         path.RemoveAt(0);
         if(path.Count > 0){
             TargetTransform = path[0].transform;
