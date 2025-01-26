@@ -8,6 +8,9 @@ public class PlayerInteract : MonoBehaviour
     bool CanWinNow;
     int eggCounter;
     int maxEggs = 3;
+
+    [SerializeField]
+    GameManager gameManager;
     // Start is called before the first frame update
 
     void Awake() {
@@ -30,6 +33,8 @@ public class PlayerInteract : MonoBehaviour
             CanWinNow = true;
             Destroy(other.gameObject);
             eggCounter = eggCounter + 1;
+
+            gameManager.enemyObject.GetComponent<EnemyMovement>().speedUp();
         }
 
         if(other.CompareTag("Exit")){

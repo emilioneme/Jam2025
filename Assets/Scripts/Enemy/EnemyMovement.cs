@@ -63,6 +63,9 @@ public class EnemyMovement : MonoBehaviour
 
     List<Node> path;
 
+    float maxSpeed;
+    float speedIncrement;
+
 
     public enum ChasingStates
     {
@@ -81,6 +84,8 @@ public class EnemyMovement : MonoBehaviour
         //TargetTransform = enemyNodeFinder.GetTargetNode().transform;
         rb = GetComponent<Rigidbody>(); // Assign the Rigidbody
         swimmingSpeed = defaultSpeed;
+        maxSpeed = gameManager.playerObject.GetComponent<PlayerMovement>().forwardSrintingSpeed;
+        speedIncrement = (maxSpeed - defaultSpeed) / 3;
     }
 
     void Update()
@@ -115,15 +120,11 @@ public class EnemyMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hitInfo, maxTargetDistance))
         {
-            if (hitInfo.collider.transform == TargetTransform)
-                
-                if(TargetTransform == TargetTransform.CompareTag("Player")){
-                    //swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
-                    swimmingSpeed = speedingSpeed;
-                } else {
-                    swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
-                }
-
+            if (hitInfo.collider.transform == TargetTransform && TargetTransform == TargetTransform.CompareTag("Player"))
+            {
+                //swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
+                swimmingSpeed = speedingSpeed;
+            }
             else
                 swimmingSpeed = defaultSpeed; // Use default speed otherwise
         }
@@ -147,7 +148,7 @@ public class EnemyMovement : MonoBehaviour
     private bool LOSToPlayer()
     {
         Vector3 direction = (gameManager.playerObject.transform.position - this.transform.position).normalized;
-        Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position), Color.blue, cooldown);
+        //Debug.DrawRay(this.transform.position, (gameManager.playerObject.transform.position - this.transform.position), Color.blue, cooldown);
         int layerToIgnore = LayerMask.NameToLayer("Node");
         int layerToIgnore2 = LayerMask.NameToLayer("Enemy");
         int combinedLayerMask = (1 << layerToIgnore) | (1 << layerToIgnore2); // Combine both layers
@@ -194,8 +195,21 @@ public class EnemyMovement : MonoBehaviour
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
     }
 
-    public void NextNode(){
+    public void NextNode()
+    {
+        Debug.Log("Next Node");
         path.RemoveAt(0);
-        TargetTransform = path[0].transform;
+        if(path.Count > 0){
+            TargetTransform = path[0].transform;
+        } else {
+            path = enemyNodeFinder.GetTargetPath();
+            TargetTransform = path[0].transform;
+        }
+        
+    }
+
+    public void speedUp()
+    {
+        defaultSpeed = defaultSpeed + speedIncrement;
     }
 }

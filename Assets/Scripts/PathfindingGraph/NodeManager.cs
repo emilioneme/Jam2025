@@ -57,11 +57,11 @@ public class NodeManager : MonoBehaviour
             }
             else
             {
-                Debug.Log("return closest edge case: " + node.gameObject.name);
+                //Debug.Log("return closest edge case: " + node.gameObject.name);
             }
         }
 
-        Debug.Log("returning closest as: " + closestNode.gameObject.name);
+        //Debug.Log("returning closest as: " + closestNode.gameObject.name);
 
         return closestNode;
     }
@@ -92,12 +92,12 @@ public class NodeManager : MonoBehaviour
             Dictionary<Node, Node> previousNodes = new Dictionary<Node, Node>();
             List<Node> unvisitedNodes = new List<Node>();
 
-            Debug.Log("Start: " + start.gameObject.name);
-            Debug.Log("End: " + end.gameObject.name);
+            //Debug.Log("Start: " + start.gameObject.name);
+            //Debug.Log("End: " + end.gameObject.name);
 
-            Debug.Log(allNodes.Count);
+            //Debug.Log(allNodes.Count);
             for(int i = 0; i < allNodes.Count; i++){
-                Debug.Log("all nodes: " + allNodes[i].gameObject.name);
+                //Debug.Log("all nodes: " + allNodes[i].gameObject.name);
             }
 
             // Step 2: Initialize all nodes in the graph
@@ -109,7 +109,7 @@ public class NodeManager : MonoBehaviour
             }
 
             for(int i = 0; i < unvisitedNodes.Count; i++){
-                Debug.Log("unvisited: " + unvisitedNodes[i].gameObject.name);
+                //Debug.Log("unvisited: " + unvisitedNodes[i].gameObject.name);
             }
 
             // Step 3: Set the distance to the start node to 0
@@ -153,7 +153,7 @@ public class NodeManager : MonoBehaviour
                     {
                         distances[neighbor] = newDist;
                         previousNodes[neighbor] = currentNode;
-                        Debug.Log("#####PREVIOUS NODE of : " + neighbor.gameObject.name + " added : " + currentNode.gameObject.name);
+                        //Debug.Log("#####PREVIOUS NODE of : " + neighbor.gameObject.name + " added : " + currentNode.gameObject.name);
                     }
                 }
 

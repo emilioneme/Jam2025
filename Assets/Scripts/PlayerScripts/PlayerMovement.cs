@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Movement Settings")]
     [SerializeField]
-    float forwardSrintingSpeed = 3f;
+    public float forwardSrintingSpeed = 3f;
     [SerializeField]
     float forwardSpeed = 5f;
     [SerializeField]
