@@ -12940,6 +12940,26 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 3454295135138544526}
+    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: DoorOpenSoundPrefab
+      value: 
+      objectReference: {fileID: 3595619072826847702, guid: 72e05c130e2c0ea41b44877f142afc0c, type: 3}
+    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: pickUp1EggSoundPrefab
+      value: 
+      objectReference: {fileID: 3938693706613325113, guid: a6a680dbe09228d45a4ae4e51046cc1c, type: 3}
+    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: pickUp2EggSoundPrefab
+      value: 
+      objectReference: {fileID: 7266438466459238121, guid: 2717cbded5c89494a8b1212c950f1838, type: 3}
+    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: pickUp3EggSoundPrefab
+      value: 
+      objectReference: {fileID: 4129037646108626015, guid: e039becbe866bfe45bab2dc9862cfe1b, type: 3}
+    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: EnterLevelIntroSoundPrefab
+      value: 
+      objectReference: {fileID: 2717852651341270595, guid: 5eb170571a9a57e4abddfe88f5e2641e, type: 3}
     - target: {fileID: 7898034259074205404, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 27.789343
@@ -13011,6 +13031,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6877982643497826837, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 191218599}
+    - targetCorrespondingSourceObject: {fileID: 6877982643497826837, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1826669097}
   m_SourcePrefab: {fileID: 100100000, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
 --- !u!114 &1826669093 stripped
 MonoBehaviour:
@@ -13034,6 +13057,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d130435b6d2895c48899fc4510010e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1826669097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191218594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37a68baf6b9547641b29ac2514997126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heartbeatSound: {fileID: 8300000, guid: d9a8f66a5c1f8b54e893660e30e6d8b3, type: 3}
+  bpm: 1
 --- !u!1 &1852827883
 GameObject:
   m_ObjectHideFlags: 0
