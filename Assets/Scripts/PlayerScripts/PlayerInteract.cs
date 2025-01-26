@@ -99,7 +99,7 @@ public class PlayerInteract : MonoBehaviour
         }
 
         if(other.CompareTag("Exit")){
-            if(CanWinNow == true){
+            if(CanWinNow == true && !gameManager.playerObject.GetComponent<PlayerOxygen>().isDead){
                 //TODO WIN CON LOGIC
                 EggsCollectedText.text = "Eggs collected: " + eggCounter + "/" + maxEggs;
                 // Set DeathImage transparency

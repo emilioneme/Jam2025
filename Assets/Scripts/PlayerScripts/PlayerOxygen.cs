@@ -28,7 +28,7 @@ public class PlayerOxygen : MonoBehaviour
     [SerializeField]
     public int currentHealth; // Current health
 
-    bool isDead;
+    public bool isDead;
     Rigidbody rb;
 
     GameManager gameManager;
