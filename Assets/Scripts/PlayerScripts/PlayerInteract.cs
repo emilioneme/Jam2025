@@ -9,9 +9,26 @@ public class PlayerInteract : MonoBehaviour
     int eggCounter;
     int maxEggs = 3;
     [SerializeField]
-    GameObject pickUpEggSoundPrefab;
+    GameObject pickUp1EggSoundPrefab;
     
-    GameObject pickUpEggSound;
+    GameObject pickUp1EggSound;
+
+    [SerializeField]
+    GameObject pickUp2EggSoundPrefab;
+    GameObject pickUp2EggSound;
+
+    [SerializeField]
+    GameObject pickUp3EggSoundPrefab;
+    GameObject pickUp3EggSound;
+
+    [SerializeField]
+    GameObject EnterLevelIntroSoundPrefab;
+    GameObject EnterLevelIntroSound;
+
+    [SerializeField]
+    GameObject DoorOpenSoundPrefab;
+    GameObject DoorOpenSound;
+
 
     [SerializeField]
     GameManager gameManager;
@@ -22,6 +39,8 @@ public class PlayerInteract : MonoBehaviour
     }
     void Start()
     {
+        EnterLevelIntroSound = Instantiate(EnterLevelIntroSoundPrefab);
+        Destroy(EnterLevelIntroSound, 24f);
         
     }
 
@@ -38,8 +57,27 @@ public class PlayerInteract : MonoBehaviour
             Destroy(other.gameObject);
             eggCounter = eggCounter + 1;
 
-            pickUpEggSound = Instantiate(pickUpEggSoundPrefab);
-            Destroy(pickUpEggSound, 10f);
+            switch(eggCounter){
+
+                case 0:
+                    pickUp1EggSound = Instantiate(pickUp1EggSoundPrefab);
+                    Destroy(pickUp1EggSound, 15f);
+                    break;
+
+                case 1:
+                    pickUp2EggSound = Instantiate(pickUp2EggSoundPrefab);
+                    Destroy(pickUp2EggSound, 15f);
+                    break;
+
+                case 2:
+                    pickUp3EggSound = Instantiate(pickUp3EggSoundPrefab);
+                    Destroy(pickUp3EggSound, 15f);
+                    break;
+
+                default:
+                    Debug.Log("I have no idea how this happened. Wrong egg counter.");
+                    break;
+            }
 
             gameManager.enemyObject.GetComponent<EnemyMovement>().speedUp();
         }
