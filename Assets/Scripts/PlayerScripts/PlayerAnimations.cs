@@ -7,11 +7,6 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField]
     Animator Animator;
 
-    [SerializeField]
-    float idleVelocityMax;
-    [SerializeField]
-    float speedingVelocityMin;
-
     Rigidbody rb;
     public enum PlayerAnimationStates
     {
