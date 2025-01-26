@@ -8,6 +8,10 @@ public class PlayerInteract : MonoBehaviour
     bool CanWinNow;
     int eggCounter;
     int maxEggs = 3;
+    [SerializeField]
+    GameObject pickUpEggSoundPrefab;
+    
+    GameObject pickUpEggSound;
 
     [SerializeField]
     GameManager gameManager;
@@ -33,6 +37,9 @@ public class PlayerInteract : MonoBehaviour
             CanWinNow = true;
             Destroy(other.gameObject);
             eggCounter = eggCounter + 1;
+
+            pickUpEggSound = Instantiate(pickUpEggSoundPrefab);
+            Destroy(pickUpEggSound, 10f);
 
             gameManager.enemyObject.GetComponent<EnemyMovement>().speedUp();
         }
