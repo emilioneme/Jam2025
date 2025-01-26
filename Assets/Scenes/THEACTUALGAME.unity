@@ -12563,10 +12563,6 @@ PrefabInstance:
       propertyPath: DeathCanvas
       value: 
       objectReference: {fileID: 1050633517}
-    - target: {fileID: 3030041706145658289, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
-      propertyPath: gameManager
-      value: 
-      objectReference: {fileID: 3454295135138544526}
     - target: {fileID: 4929589766958253985, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 26.54
@@ -12611,21 +12607,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 7115965156474484352, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
-      propertyPath: initialTimeToStart
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 3454295135138544526}
-    - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
-      propertyPath: pickUpEggSoundPrefab
-      value: 
-      objectReference: {fileID: 1862158135764687704, guid: 53b9c133da85a6e4cbe0cb741c1fc1af, type: 3}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 1276719970043619467, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
@@ -24757,7 +24744,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
