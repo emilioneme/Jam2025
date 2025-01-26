@@ -1280,7 +1280,6 @@ GameObject:
   - component: {fileID: 2730853861306183958}
   - component: {fileID: 2906727270740561961}
   - component: {fileID: 138814153288316327}
-  - component: {fileID: 3030041706145658289}
   - component: {fileID: 7115965156474484352}
   - component: {fileID: 7679346857226131242}
   m_Layer: 3
@@ -1394,19 +1393,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0.28}
---- !u!114 &3030041706145658289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6877982643497826837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3cc80825b237e144a1fe9d6754f4a61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameManager: {fileID: 0}
 --- !u!114 &7115965156474484352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1434,6 +1420,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3cc80825b237e144a1fe9d6754f4a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickUpEggSoundPrefab: {fileID: 1862158135764687704, guid: 53b9c133da85a6e4cbe0cb741c1fc1af, type: 3}
   gameManager: {fileID: 0}
 --- !u!1 &7578750781834207138
 GameObject:
