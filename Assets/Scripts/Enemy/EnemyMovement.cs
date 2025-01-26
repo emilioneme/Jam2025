@@ -124,6 +124,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 //swimmingSpeed = defaultSpeed + 50f * 1.0f/(0.1f+Vector3.Distance(this.transform.position, TargetTransform.position));
                 swimmingSpeed = speedingSpeed;
+                gameManager.enemyObject.GetComponent<EnemySounds>().PlayShriek();
             }
             else
                 swimmingSpeed = defaultSpeed; // Use default speed otherwise
@@ -159,6 +160,7 @@ public class EnemyMovement : MonoBehaviour
         {
             if (hitInfo.transform.CompareTag("Player"))
             {
+                
                 return true;
             }
             return false;
