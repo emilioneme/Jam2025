@@ -1,10 +1,22 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerInteract : MonoBehaviour
 {
+     [SerializeField]
+    Image WinImage;
+
+    [SerializeField]
+    TMP_Text EggsCollectedText;
+
+    [SerializeField]
     bool CanWinNow;
+    [SerializeField]
     int eggCounter;
     int maxEggs = 3;
     [SerializeField]
@@ -89,12 +101,24 @@ public class PlayerInteract : MonoBehaviour
         if(other.CompareTag("Exit")){
             if(CanWinNow == true){
                 //TODO WIN CON LOGIC
+                EggsCollectedText.text = "Eggs collected: " + eggCounter + "/" + maxEggs;
+                // Set DeathImage transparency
+                Color winColor = WinImage.color;
+                winColor.a = 1f; // Fully opaque
+                WinImage.color = winColor;
                 Debug.Log("You win!");
                 Debug.Log("Eggs collected: " + eggCounter + "/" + maxEggs);
+                StartCoroutine(DeleayedGoToMenu());
             } else {
                 //TODO TELL THEM THEY CANT WIN YET
                 Debug.Log("Need to get egg first.");
             }
         }
+    }
+
+    IEnumerator DeleayedGoToMenu()
+    {
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("THEMENU");
     }
 }
