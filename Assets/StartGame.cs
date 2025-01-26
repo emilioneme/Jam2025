@@ -24,7 +24,10 @@ public class StartGame : MonoBehaviour
 
     void Start()
     {
-        loadingPanel.enabled = false;;
+        loadingPanel.enabled = false;
+                // Lock the cursor to the center of the screen and hide it
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     void FixedUpdateUpdate()
