@@ -37,7 +37,7 @@ public class StartGame : MonoBehaviour
         {
             loadingBar.fillAmount = fakeLoadingProgress;
             timeSinceLoading = Time.time - timeWhenStartedLoading;
-            fakeLoadingProgress = timeSinceLoading + (Time.deltaTime + timeIncreaseMultiplier) + actualProgress;
+            fakeLoadingProgress = Time.time / 10;
             loadingBar.fillAmount = fakeLoadingProgress;
         }
     }
@@ -49,7 +49,7 @@ public class StartGame : MonoBehaviour
         loadingPanel.enabled = true;
         isLoading = true;
         timeWhenStartedLoading = Time.time;
-        StartCoroutine(LoadSceneAsync("THEACTUALGAME"));
+        StartCoroutine(LoadSceneAsync("NEWLEVELACTUAL"));
     }
 
     // Coroutine to handle asynchronous scene loading

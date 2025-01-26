@@ -28,6 +28,7 @@ public class PlayerOxygen : MonoBehaviour
     [SerializeField]
     public int currentHealth; // Current health
 
+    bool isDead;
     Rigidbody rb;
 
     GameManager gameManager;
@@ -57,13 +58,17 @@ public class PlayerOxygen : MonoBehaviour
         // Optional: Handle what happens when health reaches 0
         if(currentHealth <= 0)
         {
-            Die();
+            if(!isDead)
+            {
+                Die();
+            }
         }
     }
 
 
     IEnumerator Die()
     {
+        isDead = true;
         // Disable player movement and enable gravity
         gameObject.GetComponent<PlayerMovement>().canMove = false;
         rb.useGravity = true;
