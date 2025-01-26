@@ -66,8 +66,6 @@ public class EnemyMovement : MonoBehaviour
     float maxSpeed;
     float speedIncrement;
 
-    public int directionFlip;
-
 
     public enum ChasingStates
     {
@@ -94,7 +92,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (Time.time > lastTimeUsed + cooldown)
         {
-            directionFlip = 1;
+
             lastTimeUsed = Time.time;
 
             if (LOSToPlayer())
@@ -172,7 +170,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (isMoving)
         {
-            rb.velocity = transform.forward * swimmingSpeed * directionFlip;
+            rb.velocity = transform.forward * swimmingSpeed;
             RotatePlayer();
         }
     }

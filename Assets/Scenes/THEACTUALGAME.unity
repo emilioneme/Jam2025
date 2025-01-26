@@ -6192,8 +6192,12 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4223719258170764898, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4223719258170764898, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
       propertyPath: m_Constraints
-      value: 112
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5062367496401527828, guid: a3978e6439854fe408e99d6f163c2d34, type: 3}
       propertyPath: m_LocalPosition.x
@@ -12636,6 +12640,10 @@ PrefabInstance:
     - target: {fileID: 6877982643497826837, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7115965156474484352, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: initialTimeToStart
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: gameManager
