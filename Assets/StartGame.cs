@@ -42,6 +42,10 @@ public class StartGame : MonoBehaviour
     // Function to load Scene 2 asynchronously with a progress bar
     public void LoadTHEGAMEAsync()
     {
+        // Optional: Show a loading screen or progress UI here
+        loadingPanel.enabled = true;
+        isLoading = true;
+        timeWhenStartedLoading = Time.time;
         StartCoroutine(LoadSceneAsync("THEACTUALGAME"));
     }
 
@@ -49,11 +53,6 @@ public class StartGame : MonoBehaviour
     private IEnumerator LoadSceneAsync(string sceneName)
     {
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-
-        // Optional: Show a loading screen or progress UI here
-        loadingPanel.enabled = true;
-        isLoading = true;
-        timeWhenStartedLoading = Time.time;
 
         while (!asyncOperation.isDone)
         {

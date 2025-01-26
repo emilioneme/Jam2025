@@ -7,6 +7,13 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField]
+    float minRandomOffset = -2;
+    [SerializeField]
+    float maxRandomOffset = 2;
+
+    float randomOffset = Random.Range(-1, 1);
+
+    [SerializeField]
     PlayerOxygen playerOxygen;
 
     [SerializeField]
@@ -29,6 +36,10 @@ public class PlayerUI : MonoBehaviour
     }
 
     public WarningState currentState = WarningState.Happy;
+    private float lastTimeOffsetted = 0;
+    [SerializeField]
+    private float randomOffsetCooldown = 2;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -38,7 +49,18 @@ public class PlayerUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timerText.text = playerOxygen.currentHealth.ToString() + " O2";
+        if(Time.time > lastTimeOffsetted + randomOffsetCooldown)
+        {
+            lastTimeOffsetted = Time.time;
+        }
+
+        int minutes = playerOxygen.currentHealth / 60;
+        int seconds = playerOxygen.currentHealth - (minutes * 60);
+        string minuteTimer = minutes.ToString() + ":" + seconds.ToString();
+
+        float oxygenLevel = playerOxygen.currentHealth + randomOffset;
+
+        timerText.text = oxygenLevel.ToString() + " o2" + "\n" + minuteTimer;
 
 
         if(playerOxygen.currentHealth > (playerOxygen.maxHealth / 3) * 2)
