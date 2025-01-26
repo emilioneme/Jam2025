@@ -123,6 +123,7 @@ public class EnemyMovement : MonoBehaviour
                 } else {
                     swimmingSpeed = speedingSpeed; // Speed up when the target is directly ahead
                 }
+
             else
                 swimmingSpeed = defaultSpeed; // Use default speed otherwise
         }
