@@ -15,7 +15,7 @@ public class EnemyMovement : MonoBehaviour
 
 
     [SerializeField]
-    Transform TargetTransform;
+    public Transform TargetTransform;
 
     [SerializeField]
     Transform PlayerTransform;
