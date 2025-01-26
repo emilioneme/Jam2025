@@ -12611,6 +12611,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 7115965156474484352, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
+      propertyPath: initialTimeToStart
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7679346857226131242, guid: 202497c56cb06a54ab26b83060e95d5c, type: 3}
       propertyPath: gameManager
       value: 

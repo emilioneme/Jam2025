@@ -7,6 +7,9 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField]
     Animator Animator;
 
+    [SerializeField]
+    float initialTimeToStart = 10;
+
     Rigidbody rb;
     public enum PlayerAnimationStates
     {
@@ -18,32 +21,40 @@ public class PlayerAnimations : MonoBehaviour
         
     }
 
-    public PlayerAnimationStates currentAnimationState = PlayerAnimationStates.None;
+    public PlayerAnimationStates currentAnimationState = PlayerAnimationStates.OxygenCheck;
+
+    void Start()
+    {
+       currentAnimationState = PlayerAnimationStates.OxygenCheck;
+    }
 
 
     // Update is called once per frame
     void Update()
     {   
-        //CHangeStates
-        if(!gameObject.GetComponent<PlayerMovement>().canMove)
+        if(Time.time > initialTimeToStart)
         {
-              currentAnimationState = PlayerAnimationStates.Dead;
-        }
-        else if(Input.GetKey(KeyCode.Tab))
-        {
-            currentAnimationState = PlayerAnimationStates.OxygenCheck;
-        }
-        else if(Input.GetAxis("Vertical") > 0)
-        {
-            currentAnimationState = PlayerAnimationStates.Forward;
-        }
-        else if(Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") != 0)
-        {
-            currentAnimationState = PlayerAnimationStates.Backward;
-        }
-        else
-        {
-            currentAnimationState = PlayerAnimationStates.None;
+            //CHangeStates
+            if(!gameObject.GetComponent<PlayerMovement>().canMove)
+            {
+                currentAnimationState = PlayerAnimationStates.Dead;
+            }
+            else if(Input.GetKey(KeyCode.Tab))
+            {
+                currentAnimationState = PlayerAnimationStates.OxygenCheck;
+            }
+            else if(Input.GetAxis("Vertical") > 0)
+            {
+                currentAnimationState = PlayerAnimationStates.Forward;
+            }
+            else if(Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") != 0)
+            {
+                currentAnimationState = PlayerAnimationStates.Backward;
+            }
+            else
+            {
+                currentAnimationState = PlayerAnimationStates.None;
+            }
         }
 
         ///////////////////////////////////////////////////////////////////////////////////
