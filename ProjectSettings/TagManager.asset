@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Node
   - Enemy
+  - Egg
+  - Exit
   layers:
   - Default
   - TransparentFX
