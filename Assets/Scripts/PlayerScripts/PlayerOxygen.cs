@@ -60,7 +60,7 @@ public class PlayerOxygen : MonoBehaviour
         {
             if(!isDead)
             {
-                Die();
+                StartCoroutine(Die());
             }
         }
     }
@@ -109,7 +109,10 @@ public class PlayerOxygen : MonoBehaviour
 
         if(collider.transform.CompareTag("Enemy"))
         {
-            StartCoroutine(Die());
+            if(!isDead)
+            {
+                StartCoroutine(Die());
+            }
         }   
 
     }
