@@ -7,6 +7,7 @@ public class PlayerInteract : MonoBehaviour
 
     bool CanWinNow;
     int eggCounter;
+    int maxEggs = 3;
     // Start is called before the first frame update
 
     void Awake() {
@@ -35,7 +36,7 @@ public class PlayerInteract : MonoBehaviour
             if(CanWinNow == true){
                 //TODO WIN CON LOGIC
                 Debug.Log("You win!");
-                Debug.Log("Eggs collected: " + eggCounter);
+                Debug.Log("Eggs collected: " + eggCounter + "/" + maxEggs);
             } else {
                 //TODO TELL THEM THEY CANT WIN YET
                 Debug.Log("Need to get egg first.");
